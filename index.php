@@ -13,6 +13,7 @@ error_reporting(-1);
 //gesendetes Array ausgeben.
 pre_print_r($_POST);
 }
+
 /*      
                                 +#W,
                                   W,       MÜNSMEDIA GbR                  MÜNSMEDIA GbR
@@ -61,15 +62,7 @@ echo "</div>";
  exit; 
     }
 }
-/*function setmessage($strMessage, $strType='success')
-{
-    if($strType == 'success'){
-                     echo "<div class='green message".$strType;"'>";
-                          echo $strMessage;
-                     echo "</div>";
-    }		
-    exit;
-}*/
+
 function readContent($file, $full=false)
 {
  if(!isset($result)){$result = "";}else{}
