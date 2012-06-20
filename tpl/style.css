@@ -1,0 +1,32 @@
+/* 
+    Document   : style
+    Created on : 07.06.2012, 01:10:49
+    @Author     : Bjoern
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+
+body {
+	background: #FFF;
+}
+#invoice {
+	width: 760px;
+	padding: 20px;
+}
+input[type="text"] {
+	font-size: inherit;
+	font-family: inherit;
+	width: 100px;
+}
+.red    {  
+        color: red;
+}
+.green  {
+        color: green;
+}
+.message	{ font-weight: bold; font-size: 11px; padding: 8px; margin-bottom: 2px; }
+.success	{ background-color: #F3FDF1; border: 1px solid #138800;  color: #138800; }
+.error		{ background-color: #FDF5F1; border: 1px solid #CD0A0A; color: #CD0A0A; }
+
+

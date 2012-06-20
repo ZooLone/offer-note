@@ -1,0 +1,22 @@
+Sehr geehrte Damen und Herren,
+
+der Kunde {Anrede_Email} wurde mit dieser E-Mail informiert.
+
+wir freuen uns Ihm heute die Auftragsbestaetigung für das Angebot:
+{Rechnungsnr} vom {AngebotsnummerDatum}
+zustellen zu können. 
+Der Betrag ueber {Betrag_gesamt} {Waehrung} wird regulaer nach Auftragsfertigstellung fällig.
+Sie erhalten dazu dann eine seperate E-Mail mit der Rechnung.
+
+
+Mit freundlichen Grüßen
+
+__________________________________________
+
+
+Impressum
+*****************************************************************************************
+
+Diese E-Mail ist vertraulich. Wenn Sie nicht der rechtmäßige Empfänger sind,
+ürfen Sie den Inhalt weder kopieren, verbreiten oder benutzen. Sollten Sie diese E-Mail versehentlich erhalten haben,
+senden Sie diese bitte an uns zurück und löschen sie anschließend.
