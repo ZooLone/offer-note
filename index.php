@@ -214,7 +214,7 @@ else{
                        number_format($data->base->rounded_amount, 2), 
                        utf8_encode($data->base->curr_symbol),
                        utf8_encode($data->base->invoiceno),
-                        date("d.m.Y", strtotime($data->base->status_date)),
+                        date("d.m.Y", strtotime($data->base->created)),
                        $customerData["result"]->customerno,
                        $angebotsnummer_off,
                        $data->base->id
