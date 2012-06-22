@@ -13,7 +13,6 @@ error_reporting(-1);
 //gesendetes Array ausgeben.
 pre_print_r($_POST);
 }
-
 /*      
                                 +#W,
                                   W,       MÜNSMEDIA GbR                  MÜNSMEDIA GbR
@@ -54,7 +53,7 @@ $config = array();
 
 function throwError($message, $strType='success')
 {
-if($strType=='success')
+if($strType == 'success')
     {echo "<div class='message ".$strType."'>".$message.'<br>';}else{
 echo "<b>Es ist ein Fehler aufgetreten</b> <br>";
 echo "<div class='message ".$strType."'>".$message.'<br>';
@@ -156,15 +155,20 @@ else{
 	// Get Config-Data out of the db
 	mysql_connect($db[0]['host'],$db[0]['user'],$db[0]['password']);
 	mysql_select_db($db[0]['database']);
-	mysql_query("set names 'utf8'");
+	mysql_query("SET `names` 'utf8'");
 	
 	$result = mysql_query('SELECT * FROM `configuration`');
 	while($row = mysql_fetch_object($result)){
 	// type-conversion text -> boolean
 		switch ($row->value){
-			case "false": $cfg[$row->id] = false; break;
-			case "true": $cfg[$row->id] = true; break;
-			default: $cfg[$row->id] = $row->value;
+			case "false": 
+                            $cfg[$row->id] = false; 
+                            break;
+			case "true": 
+                            $cfg[$row->id] = true; 
+                            break;
+			default: 
+                            $cfg[$row->id] = $row->value;
 		}
 	}
 	// Check wheter file already exists
@@ -192,16 +196,16 @@ else{
 
         if(isset($_POST['mailspool']) AND $_POST['mailspool'] == 'mailspool'){
    $arrVars = array("{Anrede_Email}",
-      "{Anrede_Email_Nachname}",
-      "{Anrede_Email_Vorname}",
-      "{Anrede_Email_Titel}",
-      "{Betrag_gesamt}",
-      "{Waehrung}",
-      "{Rechnungsnr}",
-      "{AngebotsnummerDatum}",
-      "{Kundennummer}",
-      "{Angebotsnummer-off}",
-      "{Angebotsnummer}"
+                    "{Anrede_Email_Nachname}",
+                    "{Anrede_Email_Vorname}",
+                    "{Anrede_Email_Titel}",
+                    "{Betrag_gesamt}",
+                    "{Waehrung}",
+                    "{Rechnungsnr}",
+                    "{AngebotsnummerDatum}",
+                    "{Kundennummer}",
+                    "{Angebotsnummer-off}",
+                    "{Angebotsnummer}"
        );
         $angebotsnummer_off = $data->base->id + $offset;
 	$customerData = $client->getCustomer($strAPIKey, $data->base->customers_id);    
@@ -248,10 +252,12 @@ else{
                     "mailformat" => $config["mailformat"]
                     //array("Angebotbestpdf" =>$path_to_gsales.$cfg['dir_data'].$cfg['dir_documents'].$docname);
                          )); 
-         throwError("Es wurden 2 E-Mails im Mailspool erstellt.","success");
+            throwError("Es wurden 2 E-Mails im Mailspool erstellt.","success");
 	 unset($customerData, $spoolData, $spoolData2,$dokumente);
-        }else{
-         throwError("kein Mailspool eintrag vorgenommen.","success");
+        }
+        else
+            {
+            throwError("kein Mailspool eintrag vorgenommen.","success");
         }
         
         
@@ -275,7 +281,8 @@ else{
 				window.open(\'../index.php?p=file&loc='.$cfg['dir_documents'].$docname.'\');
 			</script>');
 	}
-	else{
+	else
+            {
 		throwError("Es ist ein Fehler bei der Erstellung der Angebotsbestätigung aufgetreten.",'error');
 	}
 }
