@@ -192,7 +192,7 @@ else{
          }
 
 
-        if(isset($_POST['mailspool']) AND $_POST['mailspool'] == 'mailspool'){
+  if(!empty($_POST['mailspool']) AND $_POST['mailspool'] == 'mailspool'){
    $arrVars = array("{Anrede_Email}",
                     "{Anrede_Email_Nachname}",
                     "{Anrede_Email_Vorname}",
