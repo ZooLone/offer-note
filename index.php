@@ -13,6 +13,7 @@ error_reporting(-1);
 //gesendetes Array ausgeben.
 pre_print_r($_POST);
 }
+
 /*      
                                 +#W,
                                   W,       MÜNSMEDIA GbR                  MÜNSMEDIA GbR
@@ -49,8 +50,13 @@ pre_print_r($_POST);
  * @version 07.06.2012 1.4.2 beta
  * @author BSE-Hosting Service Björn Romanski 
  */
-$config = array();
-
+//$config = array();
+require('conf/config.php');
+$client = new soapclient($strApiWsdlUrl); 
+if(!isset($client->_soap_version))
+{
+ throwError("Bitte pr&uuml;fe deine API Daten");
+}
 function throwError($message, $strType='success')
 {
 if($strType == 'success')
@@ -77,20 +83,13 @@ function readContent($file, $full=false)
  else
  {
   $file = fopen($file, "r");
-  $result = fgets($file);
-  fclose($file);  
+    $result = fgets($file);
+    fclose($file);  
   unset($file);
   return $result; 
  }
 }
-$angebotsnummer_off ='';
-
-require('conf/config.php');
-$client = new soapclient($strApiWsdlUrl); 
-if(empty($client->_soap_version))
-{
- throwError("Bitte pr&uuml;fe deine API Daten");
-}
+$angebotsnummer_off = '';
 
 if((int)$config["mailformat"] === 0 || (int)$config["mailformat"] === 2)
 {
@@ -111,13 +110,12 @@ if((int)$config["mailformat"] === 0 || (int)$config["mailformat"] === 1)
   throwError("Das Template f&uuml;r die Plaintext Emails ist nicht vorhanden",'error');
   $email_firmatxt = readContent('tpl/email_firmatxtformat.txt', true);
 }
-$client = new soapclient($strApiWsdlUrl); 
 
-$arrResult = $client->getOffer(API_KEY, $_GET['iid']);
-
+$arrResult = $client->getOffer($strAPIKey, $_GET['iid']);
+//pre_print_r($arrResult);
 
 $data = $arrResult['result'];
-	
+
 $path_to_gsales = str_replace('mm-offer-note/index.php', '', $_SERVER['SCRIPT_FILENAME']);
 
 function pre_print_r($arr){
