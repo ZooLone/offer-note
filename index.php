@@ -220,7 +220,7 @@ else{
                        $data->base->id
 					  ); 
      $dokumente = array("Angebotbestpdf" =>$path_to_gsales.$cfg['dir_data'].$cfg['dir_documents'].$docname);
-     $spoolData = $client->createMailspoolEntry(API_KEY, 
+     $spoolData = $client->createMailspoolEntry($strAPIKey, 
              array(
                     "useDefaultFrom" => (bool)$config["useDefaultFrom"], 
                     "from_email" =>  utf8_encode($config["from_email"]),
@@ -235,7 +235,7 @@ else{
                     "mailformat" => $config["mailformat"],
                     "attachements" => $dokumente
                          )); 
-     $spoolData2 = $client->createMailspoolEntry(API_KEY, 
+     $spoolData2 = $client->createMailspoolEntry($strAPIKey, 
              array(
                     "useDefaultFrom" => (bool)$config["useDefaultFrom"], 
                     "from_email" =>  utf8_encode($config["from_email"]),
